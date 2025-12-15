@@ -30,34 +30,50 @@ function getRandomIndex(){
 
 }
 
-// Code Along
+// Code Along 0
 // Write a GET route handler for / that uses .send() to respond with "Welcome to the Raccoon API" 
-
-
+app.get("/", (req, res) =>{
+    res.send('Welcome to the Raccoon API')
+})
 // Write a GET route handler for /image that uses .json() to respond with the URL of the first image
-
+app.get("/image", (req, res) =>{
+    res.json(data.images[0])
+})
 
 // Coding Exercises
 // Write a GET route handler for /fact that uses .json() to respond with the URL of the first fact
-
+app.get("/fact", (req, res) =>{
+    res.json(data.facts[0])
+})
 
 // Write the route handler for /random/fact that returns a random fact from the data object
 // Call the getRandomIndex() to get a random index
-
+app.get("/random/fact", (req, res) =>{
+    res.json(data.facts[getRandomIndex()])
+})
 
 // Write the route handler for /random/image that returns a random image from the data object
 // Call the getRandomIndex() to get a random index
-
+app.get("/random/image", (req, res) =>{
+    res.json(data.images[getRandomIndex()])
+})
 
 // Write the route handler for /api/docs that returns a message describing the two /random endpoints
 // e.g. "The endpoints you can hit are /random/fact for ... and /random/image for ..."
 // Pink: make it nicely formatted with HTML tags
+app.get("/random/docs", (req, res) =>{
+    res.send('<p>/random/fact for a random fact, and /random/image for a random image</p>')
+})
 
 
 
 // Pink: Write the route handler for /dogs/random and call the Dog CEO API for a random image
 // https://dog.ceo/dog-api/documentation/random
 
+app.get("/dogs/random", (req, res) =>{
+    res.json(https://dog.ceo/dog-api/documentation/random)
+
+})
 
 
 app.listen(3000, () => {
