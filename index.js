@@ -70,8 +70,21 @@ app.get("/random/docs", (req, res) =>{
 // Pink: Write the route handler for /dogs/random and call the Dog CEO API for a random image
 // https://dog.ceo/dog-api/documentation/random
 
+
+
+async function randomImage(url) {
+    let response = await fetch(url)
+    let actualData = await response.json()
+    console.log(actualData)
+    return actualData.message
+}
+
 app.get("/dogs/random", (req, res) =>{
-    res.json(https://dog.ceo/dog-api/documentation/random)
+    res.json({
+        "data":{
+            "url":"https://dog.ceo/api/breeds/image/random"
+        }
+    })
 
 })
 
